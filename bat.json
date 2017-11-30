@@ -1,0 +1,80 @@
+{
+  "@comment": "Items starting with @ can be used for comments.",
+
+  "target": {
+    "name": "target name",
+    "directory": "/path/to/output/directories"
+  },
+  "type": "execute, static or dynamic",
+
+  "compile": {
+    "includes": [
+      "/path/to/include"
+    ],
+    "rule": {
+      "C": {
+        "command": "gcc",
+        "includes": [
+          "/path/to/include"
+        ],
+        "options": [
+          "-O2",
+          "-Wall",
+          "-std=c11",
+          "-fPIC"
+        ],
+        "extensions": [
+          "c"
+        ]
+      },
+      "C++": {
+        "command": "clang++",
+        "includes": [
+          "/path/to/include"
+        ],
+        "options": [
+          "-O2",
+          "-Wall",
+          "-std=c++17",
+          "-fPIC"
+        ],
+        "extensions": [
+          "cpp",
+          "cxx",
+          "cc"
+        ]
+      }
+    }
+  },
+
+  "link": {
+    "command": "ld",
+    "options": [
+    ],
+    "library": {
+      "paths": [
+        "/path/to/libraries"
+      ],
+      "libraries": [
+        "name"
+      ]
+    }
+  },
+
+  "directory": {
+    "detect": true,
+    "excludes": [
+      "/path/to/auto/detect/exclude/directory"
+    ],
+    "includes": [
+      "/path/to/auto/detect/directory"
+    ]
+  },
+
+  "thread": {
+    "multi": true,
+
+    "@_thread_count": "if not set thread::count, use hardware CPU threads count",
+    "count": 4
+  }
+}
